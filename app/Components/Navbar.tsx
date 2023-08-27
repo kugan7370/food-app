@@ -62,7 +62,7 @@ const Navbar = () => {
                 <Link className='text-lg text-red-800 md:text-base font-bold' href='/orders'>Orders</Link>
                 <Cart />
             </div>
-
+            {/* toggle for mobile view */}
             <Toggle />
 
 

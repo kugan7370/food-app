@@ -39,7 +39,7 @@ const Toggle = () => {
             </div>
 
             {open &&
-                <div className=" lg:hidden md:hidden flex flex-col gap-4 absolute left-0 top-[60px]  w-full text-center h-[calc(100vh-100px)] bg-red-500 text-white  justify-center items-center">
+                <div className=" lg:hidden md:hidden flex flex-col gap-4 absolute left-0 top-[60px]  w-full text-center h-[calc(100vh-100px)] bg-red-500 text-white  justify-center items-center z-10">
                     {NavLeftLinks.map((item) => (
                         <Link className='text-lg  font-bold' key={item.id} href={item.url}>{item.name}</Link>
                     ))}

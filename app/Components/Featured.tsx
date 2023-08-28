@@ -21,7 +21,7 @@ const Featured = () => {
                         <div className="flex flex-col flex-1 justify-between  text-center text-red-500">
                             <h1 className='text-xl font-bold uppercase xl:text-2xl 2xl:text-3xl'>{item.title}</h1>
                             <p className='p-4 2xl:p-8'>{item.desc}</p>
-                            <span className='text-xl font-bold'>{item.price}</span>
+                            <span className='text-xl font-bold'>${item.price}</span>
                             <button className='bg-red-800 text-white px-2 py-1 rounded-md' title='Order now'>Add to cart</button>
                         </div>
                     </div>))}

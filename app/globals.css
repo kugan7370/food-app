@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+/* reduce scroll bar width for x axis */
+::-webkit-scrollbar {
+    width: 2px;
+}
+
+/* for x axis */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}

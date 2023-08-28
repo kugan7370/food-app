@@ -2,7 +2,7 @@
 import React from 'react'
 import Countdown from 'react-countdown'
 
-//ending date 5days from now 
+//ending date 1day from now 
 const endingDate = Date.now() + 1 * 24 * 60 * 60 * 1000
 
 const CountDown = () => {

@@ -5,7 +5,7 @@ import React from 'react'
 const Featured = () => {
 
     return (
-        <div className='flex w-screen overflow-x-scroll '>
+        <div className='flex w-screen overflow-x-scroll'>
             <div className="w-max flex">
                 {featuredProducts && featuredProducts.map((item) => (
                     <div key={item.id} className=" w-screen cursor-pointer items-center flex flex-col gap-4 p-4 hover:bg-fuchsia-50 transition-all duration-300 justify-around h-[90vh]  md:w-[50vw]  xl:w-[33vw]">

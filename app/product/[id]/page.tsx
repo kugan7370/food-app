@@ -10,9 +10,9 @@ const SingleProducts = () => {
     return (
         <div className='w-screen '>
             {/* innerContainer */}
-            {singleProduct && <div className="h-[calc(100vh-110px)]  lg:flex-row lg:justify-center items-center  w-full flex flex-col justify-between gap-10">
+            {singleProduct && <div className="h-[calc(100vh-110px)]  lg:flex-row lg:justify-center items-center  w-full flex flex-col justify-between gap-4">
                 {/* imagecontainer */}
-                <div className="relative  w-full h-1/2 md:h-[60%]">
+                <div className="relative  w-full h-1/2 md:h-[60%] mt-2">
                     {singleProduct.img && <Image src={singleProduct.img} alt='' fill className='object-contain' />}
                 </div>
 

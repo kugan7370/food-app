@@ -45,7 +45,7 @@ const Price = ({ basicPrice, options }: Props) => {
                     </div>
 
                 </div>
-                <button className='p-3 bg-red-500 text-white  ring-1 ring-red-500 font-bold uppercase rounded-r-md '>Add to cart</button>
+                <button className='p-3 w-52 bg-red-500 text-white  ring-1 ring-red-500 font-bold uppercase rounded-r-md '>Add to cart</button>
 
             </div>
         </div>

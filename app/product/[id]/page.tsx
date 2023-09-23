@@ -1,4 +1,4 @@
-import Price from '@/app/Components/Options'
+import Price from '@/Components/Options'
 import { singleProduct } from '@/data'
 import Image from 'next/image'
 import React from 'react'

@@ -1,9 +1,22 @@
-import { featuredProducts, menu } from '@/data'
-import Image from 'next/image'
+import { MenuType } from '@/types/types'
 import Link from 'next/link'
 import React from 'react'
 
-const Menu = () => {
+const getData = async () => {
+    const res = await fetch("http://localhost:3000/api/category", {
+        cache: "no-cache"
+    })
+
+    if (!res.ok) {
+        throw new Error('failed')
+
+    }
+    return res.json()
+}
+
+
+const Menu = async () => {
+    const menu: MenuType = await getData()
     return (
         <div className="h-[calc(100vh-110px)] w-screen md:flex md:justify-center md:px-32 md:py-20  ">
             {/* innerContainer */}

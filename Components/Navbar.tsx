@@ -3,8 +3,13 @@ import React from 'react'
 import Cart from './Cart'
 import Image from 'next/image'
 import Toggle from './Toggle'
+import UserLinks from './UserLinks'
 
 const Navbar = () => {
+
+
+
+
     const NavLeftLinks = [
         {
             id: 1,
@@ -59,7 +64,7 @@ const Navbar = () => {
                     <Image src="/phone.png" alt='phone' width={18} height={18} />
                     <h5 className='text-red-800 md:text-base font-bold'>555 44 00</h5>
                 </div>
-                <Link className='text-lg text-red-800 md:text-base font-bold' href='/orders'>Orders</Link>
+                <UserLinks />
                 <Cart />
             </div>
             {/* toggle for mobile view */}

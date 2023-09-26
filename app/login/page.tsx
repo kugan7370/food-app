@@ -1,6 +1,18 @@
+"use client"
 import Image from 'next/image'
 import React from 'react'
-const page = () => {
+import { useSession } from 'next-auth/react'
+import { signIn } from 'next-auth/react'
+import { useRouter } from 'next/navigation'
+
+const LoginPage = () => {
+    const { data, status } = useSession()
+    const router = useRouter()
+
+    if (status === 'loading') return <h1>loading...</h1>
+    if (status === 'authenticated') return router.push('/')
+
+
     return (
         <div className='h-[calc(100vh-110px)] w-screen flex justify-center items-center'>
             {/* main container */}
@@ -16,14 +28,14 @@ const page = () => {
                     <p>log into your account or creat a new one using social buttons</p>
 
                     <div className="social-button w-[60%] mx-auto flex flex-col lg:gap-10 gap-4">
-                        <div className="flex gap-4 items-center">
+                        <div className="flex gap-4 items-center shadow-md cursor-pointer p-1" onClick={() => signIn('google')}>
                             <div className="relative h-5 w-5 lg:h-10 lg:w-10">
                                 <Image src="/google.png" alt="" fill className="object-contain " />
 
                             </div>
                             <h2>Sign in with Google</h2>
                         </div>
-                        <div className="flex gap-4 items-center">
+                        <div className="flex gap-4 items-center shadow-md cursor-pointer p-1">
                             <div className="relative  h-5 w-5 lg:h-10 lg:w-10">
                                 <Image src="/facebook.png" alt="" fill className="object-contain " />
 
@@ -42,4 +54,4 @@ const page = () => {
     )
 }
 
-export default page
+export default LoginPage

@@ -1,6 +1,5 @@
 import prisma from "@/utils/connect"
 import { PrismaClient } from "@prisma/client"
-import { log } from "console"
 import { NextRequest, NextResponse } from "next/server"
 import { json } from "stream/consumers"
 

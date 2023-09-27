@@ -32,6 +32,8 @@ export const authOptions: NextAuthOptions = ({
         }),
     ],
 
+
+
     callbacks: {
         //add isAdmin to session
         async session({ session, token }) {
@@ -57,6 +59,7 @@ export const authOptions: NextAuthOptions = ({
 
 
     },
+
 })
 
 //this is for server side

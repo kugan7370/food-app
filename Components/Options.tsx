@@ -9,13 +9,14 @@ interface Props {
 }
 
 const Price = ({ basicPrice, options }: Props) => {
+
     const [quality, setQuality] = useState(1)
     const [option, setOption] = useState(0)
     const [totalPrice, settotalPrice] = useState(basicPrice)
 
 
     useEffect(() => {
-        settotalPrice((options ? (options[option].additionalPrice + basicPrice) : basicPrice) * quality)
+        settotalPrice((options?.length ? (options[option].additionalPrice + basicPrice) : basicPrice) * quality)
 
     }, [quality, option, basicPrice, options])
 
@@ -28,7 +29,7 @@ const Price = ({ basicPrice, options }: Props) => {
 
             {/* optionContainer */}
             <div className="flex gap-4">
-                {options && options.map((item, index) => (
+                {options?.length && options.map((item, index) => (
                     <button key={index} style={{ backgroundColor: option === index ? "rgb(239 68 68)" : "white", color: option === index ? "white" : "rgb(239 68 68)" }} onClick={() => setOption(index)} className={`px-4 py-2 ring-1 ring-red-500 rounded-md`}>{item.title}</button>
                 ))}
 

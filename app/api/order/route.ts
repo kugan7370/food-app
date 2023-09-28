@@ -6,7 +6,6 @@ import { NextRequest, NextResponse } from "next/server"
 export const GET = async (req: NextRequest) => {
     //get server side session
     const session = await getAuthSession()
-    console.log("🚀 ~ file: route.ts:9 ~ GET ~ session:", session)
 
 
 
@@ -15,11 +14,7 @@ export const GET = async (req: NextRequest) => {
         if (session) {
             //get all orders if user is admin
             if (session.user.isAdmin) {
-                const products = await prisma.order.findMany({
-                    orderBy: {
-                        creatAt: "desc"
-                    }
-                })
+                const products = await prisma.order.findMany()
                 return new NextResponse(JSON.stringify(products), { status: 200 })
 
             }
@@ -30,9 +25,7 @@ export const GET = async (req: NextRequest) => {
                 where: {
                     userEmail: session.user.email!
                 },
-                orderBy: {
-                    creatAt: "desc"
-                }
+
             })
 
             return new NextResponse(JSON.stringify(products), { status: 200 })

@@ -27,13 +27,12 @@ const category = async ({ params }: Props) => {
 
 
     const catProducts: ProductType[] = await getData(params.Category)
-    console.log(catProducts);
 
 
     return (
         <div className='flex flex-wrap'>
             {catProducts && catProducts.map((item) => (
-                <Link href={`/product/${item.title}`} key={item.id} className=" relative group w-screen lg:w-1/3 md:w-1/2 border-r-2 border-b-2 even:bg-fuchsia-50 border-red-600 h-[60vh]">
+                <Link href={`/product/${item.id}`} key={item.id} className=" relative group w-screen lg:w-1/3 md:w-1/2 border-r-2 border-b-2 even:bg-fuchsia-50 border-red-600 h-[60vh]">
                     {/* innerContainer */}
                     <div className="flex flex-col justify-between p-5 h-[100%] ">
                         <div className="relative h-[90%] lg:h-[80%] md:[80%]">

@@ -1,9 +1,21 @@
 import Price from '@/Components/Options'
-import { singleProduct } from '@/data'
 import Image from 'next/image'
 import React from 'react'
 
-const SingleProducts = () => {
+const getData = async (id: string) => {
+    const res = await fetch(`http://localhost:3000/api/product/${id}`, {
+        cache: "no-cache"
+    })
+
+    if (!res.ok) {
+        throw new Error('failed')
+
+    }
+    return res.json()
+}
+
+const SingleProducts = async ({ params }: { params: { id: string } }) => {
+    const singleProduct = await getData(params.id)
 
 
 
@@ -20,7 +32,7 @@ const SingleProducts = () => {
                 <div className="flex flex-col gap-4 text-red-500 px-10">
                     <h1 className='text-xl font-bold'>{singleProduct.title}</h1>
                     <p className='text-sm'>{singleProduct.desc}</p>
-                    <Price basicPrice={singleProduct.price} options={singleProduct.options} />
+                    <Price basicPrice={Number(singleProduct.price)} options={singleProduct.options} />
                 </div>
             </div>}
 

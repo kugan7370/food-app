@@ -83,21 +83,29 @@ export default function CheckoutForm() {
   };
 
   return (
-    <form id="payment-form" onSubmit={handleSubmit}>
-      <LinkAuthenticationElement id="link-authentication-element" />
-      <PaymentElement
-        id="payment-element"
-        options={{
-          layout: "tabs",
-        }}
-      />
-      <button disabled={isLoading || !stripe || !elements} id="submit">
-        <span id="button-text">
-          {isLoading ? <div className="spinner" id="spinner"></div> : "Pay now"}
-        </span>
-      </button>
-      {/* Show any error or success messages */}
-      {message && <div id="payment-message">{message}</div>}
-    </form>
+    <div className="p-20">
+      <form id="payment-form" onSubmit={handleSubmit}>
+        <LinkAuthenticationElement id="link-authentication-element" />
+        <PaymentElement
+          id="payment-element"
+          options={{
+            layout: "tabs",
+          }}
+        />
+        <button disabled={isLoading || !stripe || !elements} id="submit">
+          <span id="button-text">
+            {isLoading ? (
+              <div className="spinner" id="spinner"></div>
+            ) : (
+              <div className="bg-green-600 text-white border-1 rounded-md px-4 py-1 mt-2 ">
+                Pay now
+              </div>
+            )}
+          </span>
+        </button>
+        {/* Show any error or success messages */}
+        {message && <div id="payment-message">{message}</div>}
+      </form>
+    </div>
   );
 }

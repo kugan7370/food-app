@@ -19,11 +19,11 @@ export const useCartStore = create(persist<CartType & ActionTypes>((set, get) =>
 
         //get product from state
         const products = get().products;
-        const productInState = products.find((product) => product.id === item.id);
+        const productInState = products.find((product) => product.id === item.id && product.optionTitle == item.optionTitle);
 
         if (productInState) {
             const updateProduct = products.map((product) => {
-                if (product.id === item.id) {
+                if (product.id === item.id && product.optionTitle == item.optionTitle) {
                     product.quantity = product.quantity + item.quantity;
                     product.price = product.price + item.price;
 
@@ -51,8 +51,16 @@ export const useCartStore = create(persist<CartType & ActionTypes>((set, get) =>
     },
 
     removeFromCart(item) {
+
+        const products = get().products;
+
+        //remove if same id and optionTitle
+        const updatedProducts = products.filter((product) => product.id !== item.id || product.optionTitle != item.optionTitle);
+
         set((state) => ({
-            products: state.products.filter((product) => product.id != item.id),
+
+
+            products: updatedProducts,
             totalItems: state.totalItems - item.quantity,
             totalPrice: state.totalPrice - item.price
 
